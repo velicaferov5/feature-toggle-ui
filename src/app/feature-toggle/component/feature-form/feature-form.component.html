@@ -47,6 +47,10 @@
 					Back
 				</button>
 
+				<button mat-raised-button color="primary" (click)="archive()" [disabled]="!feature.id">
+					Archive
+				</button>
+
 				<button mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">
 					Save
 				</button>

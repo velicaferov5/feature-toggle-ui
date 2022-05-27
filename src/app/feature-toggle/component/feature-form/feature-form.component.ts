@@ -79,6 +79,19 @@ export class FeatureFormComponent implements OnInit {
     }
   }
 
+  archive() {
+    if (this.form.valid) {
+      this.subscriptions.push(this.service.archive(this.feature.id!).subscribe({
+        next: event => {
+          this.toastr.success("Feature Toggle archived!", "Success");
+          this.router.navigate(["feature"]);
+        },
+        error: error => this.toastr.error(error.error.message, "Error")
+      })
+      );
+    }
+  }
+
   getErrorMessage(fieldName: string): string {
     if (this.form.get(fieldName)?.hasError("required")) {
       return "You must inform a value for " + fieldName;

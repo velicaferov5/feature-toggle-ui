@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { Feature } from '../../model/feature.model';
 import { FeatureService } from '../../service/feature.service';
+import { Utils } from '../../util/utils';
 
 @Component({
   selector: 'app-feature-list',
@@ -21,9 +22,9 @@ export class FeatureListComponent implements OnInit {
     "actions"
   ];
 
-  private subscriptions: Subscription[] = [];
-
   dataSource: MatTableDataSource<Feature> = new MatTableDataSource();
+
+  private subscriptions: Subscription[] = [];
 
   constructor(private service: FeatureService) { }
 
@@ -38,6 +39,10 @@ export class FeatureListComponent implements OnInit {
           this.dataSource.data = value;
         })
     );
+  }
+
+  formatDate(date: Date): string {
+    return Utils.formatDate(date);
   }
 
 }

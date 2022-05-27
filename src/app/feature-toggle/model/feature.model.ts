@@ -1,5 +1,5 @@
 export class Feature {
-    id?: Number;
+    id?: number;
     displayName?: string;
     technicalName?: string;
     description?: string;

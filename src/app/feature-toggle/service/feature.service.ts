@@ -7,7 +7,7 @@ import { Feature } from "../model/feature.model";
     providedIn: "root"
 })
 export class FeatureService {
-    readonly url: string = "http://localhost:8080/api/featuretoggle/";
+    readonly url: string = "http://localhost:8080/api/featuretoggle";
 
     constructor(
         private http: HttpClient
@@ -39,9 +39,9 @@ export class FeatureService {
     }
 
     archive(
-        id: string
+        id: number
     ): Observable<Feature> {
-        let endpoint = this.url + "/archive" + id;
+        let endpoint = this.url + "/archive/" + id;
         return this.http.put<Feature>(endpoint, null);
     }
 

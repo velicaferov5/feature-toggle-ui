@@ -18,7 +18,7 @@
 
     <ng-container matColumnDef="expiresOn">
         <th mat-header-cell *matHeaderCellDef> Expires on </th>
-        <td mat-cell *matCellDef="let element"> {{element.expiresOn}} </td>
+        <td mat-cell *matCellDef="let element"> {{formatDate(element.expiresOn)}} </td>
     </ng-container>
 
     <ng-container matColumnDef="inverted">
