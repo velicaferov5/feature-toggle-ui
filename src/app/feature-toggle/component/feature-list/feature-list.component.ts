@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { Feature } from '../../model/feature.model';
 import { FeatureService } from '../../service/feature.service';
-import { Utils } from '../../util/utils';
 
 @Component({
   selector: 'app-feature-list',
@@ -26,7 +26,8 @@ export class FeatureListComponent implements OnInit {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private service: FeatureService) { }
+  constructor(private service: FeatureService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -41,8 +42,14 @@ export class FeatureListComponent implements OnInit {
     );
   }
 
-  formatDate(date: Date): string {
-    return Utils.formatDate(date);
+  invert(id: number, inverted: boolean) {
+    this.subscriptions.push(this.service.invert(id, inverted).subscribe({
+      next: event => {
+        this.toastr.success("Feature Toggle Inverted!", "Success");
+      },
+      error: error => this.toastr.error(error.error.message, "Error")
+    })
+    );
   }
 
 }

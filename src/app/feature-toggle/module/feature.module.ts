@@ -16,8 +16,11 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { FeatureRoutingModule } from "./feature-routing.module";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-import { ToastrModule } from "ngx-toastr";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatMomentDatetimeModule } from "@mat-datetimepicker/moment";
+import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from "@angular/material-moment-adapter";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatDatetimepickerModule, MatNativeDatetimeModule } from "@mat-datetimepicker/core";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @NgModule({
     declarations: [FeaturePageComponent, FeatureListComponent, FeatureFormComponent],
@@ -36,7 +39,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
         MatAutocompleteModule,
         MatToolbarModule,
         MatTableModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatMomentDatetimeModule,
+        MatMomentDateModule,
+        MatDatepickerModule,
+        MatDatetimepickerModule,
+        MatNativeDateModule,
+        MatNativeDatetimeModule
     ]
 })
 export class FeatureModule { }

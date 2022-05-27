@@ -18,12 +18,15 @@
 
     <ng-container matColumnDef="expiresOn">
         <th mat-header-cell *matHeaderCellDef> Expires on </th>
-        <td mat-cell *matCellDef="let element"> {{formatDate(element.expiresOn)}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.expiresOn | date:'dd-MM-yyyy HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="inverted">
         <th mat-header-cell *matHeaderCellDef> Inverted </th>
-        <td mat-cell *matCellDef="let element"> {{element.inverted}} </td>
+        <td mat-cell *matCellDef="let element">
+            <mat-slide-toggle mat-raised-button color="primary" [ngModel]="element.inverted"
+                (change)="invert(element.id, !element.inverted)"></mat-slide-toggle>
+        </td>
     </ng-container>
 
     <ng-container matColumnDef="customerIds">

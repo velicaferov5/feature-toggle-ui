@@ -45,6 +45,13 @@ export class FeatureService {
         return this.http.put<Feature>(endpoint, null);
     }
 
+    invert(
+        id: number, inverted: boolean
+    ): Observable<Feature> {
+        let endpoint = this.url + "/" + id + "/" + inverted;
+        return this.http.put<Feature>(endpoint, null);
+    }
+
     save(
         feature: Feature
     ): Observable<Feature> {

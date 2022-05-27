@@ -25,7 +25,10 @@
 			<div class="feature-input">
 				<mat-form-field appearance="outline" class="standard-field width-full">
 					<mat-label>Expires on</mat-label>
-					<input matInput formControlName="expiresOn" class="font-13" />
+					<input matInput [matDatetimepicker]="datetimePicker" formControlName="expiresOn" class="font-13" />
+					<mat-datetimepicker-toggle [for]="datetimePicker" matSuffix>
+					</mat-datetimepicker-toggle>
+					<mat-datetimepicker type="datetime" #datetimePicker></mat-datetimepicker>
 				</mat-form-field>
 			</div>
 			<div class="feature-input">
