@@ -1,0 +1,56 @@
+<div class="center">
+	<mat-card class="width-m">
+		<form [formGroup]="form" (submit)="$event.preventDefault()">
+			<h1 class="feature-form-title">{{title}}</h1>
+			<div class="feature-input">
+				<mat-form-field appearance="outline" class="standard-field width-full">
+					<mat-label>Display name</mat-label>
+					<input matInput formControlName="displayName" class="font-13" />
+				</mat-form-field>
+			</div>
+			<div class="feature-input">
+				<mat-form-field appearance="outline" class="standard-field width-full">
+					<mat-label>Technical name</mat-label>
+					<input matInput formControlName="technicalName" class="font-13" required />
+					<mat-error *ngIf="form.get('technicalName')?.invalid">{{getErrorMessage('technicalName')}}
+					</mat-error>
+				</mat-form-field>
+			</div>
+			<div class="feature-input">
+				<mat-form-field appearance="outline" class="standard-field width-full">
+					<mat-label>Description</mat-label>
+					<input matInput formControlName="description" class="font-13" />
+				</mat-form-field>
+			</div>
+			<div class="feature-input">
+				<mat-form-field appearance="outline" class="standard-field width-full">
+					<mat-label>Expires on</mat-label>
+					<input matInput formControlName="expiresOn" class="font-13" />
+				</mat-form-field>
+			</div>
+			<div class="feature-input">
+				<mat-form-field appearance="outline" class="standard-field width-full">
+					<mat-label>Customer ids</mat-label>
+					<input matInput formControlName="customerIds" required class="font-13" />
+					<mat-error *ngIf="form.get('customerIds')?.invalid">{{getErrorMessage('customerIds')}}
+					</mat-error>
+				</mat-form-field>
+
+			</div>
+
+			<div class="feature-input">
+				<mat-slide-toggle formControlName="inverted" color="primary">Inverted</mat-slide-toggle>
+			</div>
+
+			<div class="buttons">
+				<button mat-raised-button type="button" [routerLink]="['/feature']">
+					Back
+				</button>
+
+				<button mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">
+					Save
+				</button>
+			</div>
+		</form>
+	</mat-card>
+</div>

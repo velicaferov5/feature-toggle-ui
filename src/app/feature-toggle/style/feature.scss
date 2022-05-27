@@ -1,0 +1,34 @@
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.font-13 {
+	font-size: 13px;
+}
+
+.padding {
+	padding: 10px;
+}
+
+.width-m {
+	width: 36%;
+}
+
+.width-xl {
+	width: 92%;
+}
+
+.width-full {
+	width: 100%;
+}
+
+.buttons {
+	padding: 10px 0px;
+	display: flex;
+	justify-content: flex-end;
+
+	button+button {
+		margin-left: 8px;
+	}
+}

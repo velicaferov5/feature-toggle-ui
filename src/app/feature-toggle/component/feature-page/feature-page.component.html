@@ -1,0 +1,17 @@
+<div class="center">
+	<mat-card class="width-xl">
+		<h1 class="title">Feature Toggles</h1>
+		<div layout="column">
+			<div flex class="right padding">
+				<button mat-raised-button color="primary" [routerLink]="['/feature/new']">
+					New
+				</button>
+			</div>
+		</div>
+		<div layout="column">
+			<div flex>
+				<app-feature-list></app-feature-list>
+			</div>
+		</div>
+	</mat-card>
+</div>
