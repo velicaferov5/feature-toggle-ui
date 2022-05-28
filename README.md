@@ -3,7 +3,7 @@
 Feature-Toggle UI project to view, insert, update, archive and invert feature toggles.
 This project was developed with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
 
-## Backend of Feature Toggle UI:
+## Backend of Feature Toggle UI
 https://github.com/velicaferov5/feature-toggle-service
 
 ## Development server
